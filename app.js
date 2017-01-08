@@ -11,17 +11,14 @@ NarrowItDownController.$ingect = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
   var menu = this;
   menu.searchTerm = "";
- menu.searchItemByTerm =  function(){
-console.log("Yes, you call me");
-  var promises = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
-  console.log(menu.searchTerm);
-  promises.then(function (response){
-    console.log(response);
-    menu.found = response;})
-  .catch(function (error) {
-    console.log("Something went terribly wrong.");
-  });
-}
+  menu.searchItemByTerm =  function(){
+    var promises = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
+      promises.then(function (response){
+        menu.found = response;})
+        .catch(function (error) {
+          console.log("Something went terribly wrong.");
+        });
+    }
 }
 
 
