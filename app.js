@@ -3,6 +3,7 @@
 
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
+//.controller('FoundItemsDerectiveController', FoundItemsDerectiveController)
 .service('MenuSearchService', MenuSearchService)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json")
 .directive('foundItems', FoundItemsDerective);
@@ -15,15 +16,14 @@ function NarrowItDownController(MenuSearchService){
   menu.searchItemByTerm =  function(){
     var promises = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
       promises.then(function (response){
-        menu.found = response;
-      console.log(menu.found);})
+        menu.found = response;})
         .catch(function (error) {
           console.log("Something went terribly wrong.");
         });
     }
 
   menu.removeThisOne = function(indexItem){
-    menu.found.splice(itemIndex, 1);
+    menu.found.splice(indexItem, 1);
   }
 }
 
@@ -58,9 +58,9 @@ function FoundItemsDerective() {
       found: '<',
       onRemove: '='
     },
-controller: FoundItemsDerectiveController,
-    controllerAs: 'list',
-    bindToController: true
+    //controller: FoundItemsDerectiveController,
+    //controllerAs: 'list',
+    //bindToController: true
   };
   return ddo;
 }
