@@ -19,6 +19,7 @@
       <button class="btn btn-primary" ng-click = 'items.searchItemByTerm(items.searchTerm)'>Narrow It Down For Me!</button>
     </div>
 </br></br>
+<h1 ng-hide = 'items.emptySearch' >Nothing found!</h1>
     <!-- found-items should be implemented as a component -->
     <found-items found="items.found" on-remove="items.removeThisOne"></found-items>
   </div>
